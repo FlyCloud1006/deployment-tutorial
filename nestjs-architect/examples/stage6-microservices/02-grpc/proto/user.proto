@@ -1,0 +1,52 @@
+// ========== gRPC Proto 定义 ==========
+
+syntax = "proto3";
+
+package user;
+
+service UserService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+  rpc BatchGetUsers(BatchGetUsersRequest) returns (BatchGetUsersResponse);
+  rpc StreamUsers(GetUserRequest) returns (stream GetUserResponse);
+  rpc BatchCreateUsers(stream CreateUserRequest) returns (BatchCreateUsersResponse);
+}
+
+message User {
+  int32 id = 1;
+  string username = 2;
+  string email = 3;
+  int32 age = 4;
+  string created_at = 5;
+}
+
+message GetUserRequest {
+  int32 id = 1;
+}
+
+message GetUserResponse {
+  User user = 1;
+}
+
+message CreateUserRequest {
+  string username = 1;
+  string email = 2;
+  int32 age = 3;
+}
+
+message CreateUserResponse {
+  User user = 1;
+}
+
+message BatchGetUsersRequest {
+  repeated int32 ids = 1;
+}
+
+message BatchGetUsersResponse {
+  repeated User users = 1;
+}
+
+message BatchCreateUsersResponse {
+  int32 created_count = 1;
+  repeated User users = 2;
+}
