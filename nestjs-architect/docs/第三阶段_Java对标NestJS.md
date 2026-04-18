@@ -15,6 +15,58 @@
 
 ---
 
+## 0️⃣ 先修导读：为什么 Java 开发者要学 NestJS？
+
+> 本阶段不是让你"忘掉 Java 学 NestJS"，而是**建立技术映射关系**——Java 里这个概念在 NestJS 里对应什么？两者各有什么优缺点？
+
+---
+
+### 🔍 1. Java vs NestJS 核心差异
+
+| 维度 | Java/Spring | NestJS/Node.js |
+|------|------------|----------------|
+| 语言 | Java（强类型，编译时检查）| TypeScript（强类型，编译时+运行时）|
+| 生态 | Spring 全家桶（大而全）| 社区生态（灵活可组合）|
+| 性能 | 多线程（高并发吃线程资源）| 单线程+事件循环（高 I/O 很强）|
+| 学习曲线 | 陡峭（框架太多）| 平缓（装饰器语法直观）|
+| 适用场景 | 企业级后台（银行、ERP）| 互联网产品（快速迭代、轻量）|
+
+### 🔍 2. 技术概念对照表（核心速查）
+
+| Java Spring 概念 | NestJS 等价 | 一句话理解 |
+|-----------------|------------|---------|
+| `@Service` | `@Injectable()` | 业务逻辑组件（本质一样）|
+| `@Component` | `@Injectable()` | 通用组件（本质一样）|
+| `@Repository` | TypeORM Repository / 自定义 Repository | 数据访问层封装 |
+| `@Autowired` | constructor 注入 | 自动注入依赖 |
+| `@Bean` | Provider（providers 数组）| 手动注册组件 |
+| `@RequestMapping` | `@Controller` + `@Get/Post...` | 定义 HTTP 路由 |
+| Spring IOC | NestJS Module + IoC Container | 框架管理依赖创建 |
+| MyBatis XML | TypeORM Entity + QueryBuilder | ORM 数据操作 |
+| `@Transactional` | `@Transactional()` / queryRunner | 事务管理 |
+| RedisTemplate | `@nestjs/cache-manager` + Redis | 缓存操作 |
+| Dubbo / Feign | `@nestjs/microservices` + gRPC | 微服务通信 |
+| Nacos / Consul | `@nestjs/microservices` + Consul | 服务注册发现 |
+| Sentinel | 限流 Guard + 熔断 Interceptor | 限流熔断 |
+| Seata | 手动补偿事务 / Saga 模式 | 分布式事务 |
+| `@PreAuthorize` | `@SetMetadata` + RolesGuard | 权限校验 |
+| `application.yml` | `.env` + `@nestjs/config` | 配置管理 |
+| `@Scheduled` | `@nestjs/schedule` | 定时任务 |
+| Spring AOP | Interceptor + Guard + Pipe | 切面编程 |
+| Filter | Middleware | 请求过滤器 |
+| `@ControllerAdvice` | Exception Filter | 全局异常处理 |
+
+### 🔍 3. 你应该怎么学这个阶段？
+
+**不要死记硬背**，而是：
+1. 看到 Java 概念 → 想 NestJS 里有没有类似的实现
+2. 理解两者**解决的问题相同，但思路不同**
+3. 代码示例：先看 Java 版理解问题，再看 NestJS 版理解解法
+
+**记住**：NestJS 的很多概念其实**借鉴自 Spring**（所以才叫"Nest"JS，暗示 NestJS = Node.js 版的 Spring）。如果你熟悉 Spring，学 NestJS 会很快。
+
+---
+
 ## 📂 示例代码目录
 
 ```
